@@ -7,8 +7,8 @@ const config = {
   authentication: {
     type: 'default',
     options: {
-      userName: process.env.USERNAME, // update me
-      password: process.env.PASSWORD // update me
+      userName: process.env.DB_USERNAME, // update me
+      password: process.env.DB_PASSWORD // update me
     }
   }
 }
