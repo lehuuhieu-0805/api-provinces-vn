@@ -1,11 +1,10 @@
 const connection = require('../config/db.config')
 const Districts = require('../models/districts.model')
 const Provinces = require('../models/provinces.model')
-const Wards = require('../models/wards.model')
 
 const findAll = async () => {
   try {
-    const provinces = await Provinces.findAll({ include: [{ model: Districts, include: [{ model: Wards }] }] })
+    const provinces = await Provinces.findAll({ attributes: ['code', ['full_name', 'name']], include: [{ model: Districts, attributes: ['code', ['full_name', 'name']] }] })
     connection.close()
     return provinces
   } catch (err) {
